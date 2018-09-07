@@ -10,11 +10,11 @@ def fusion_sort(left, right=[]):
     if (len(left) <= 1 and len(right) <= 1):
         return fuse(left, right)
 
-    l = fusion_sort(left[0:len(left)/2-1:1], left[len(left)/2-1::1])
+    l = fusion_sort(left[0:len(left)//2-1:1], left[len(left)//2-1::1])
     if len(right) == 0:
         return l
    
-    r = fusion_sort(right[0:len(right)/2-1:1], right[len(right)/2-1::1])
+    r = fusion_sort(right[0:len(right)//2-1:1], right[len(right)//2-1::1])
     return fuse(l,r)
     
 def fuse(left, right):
@@ -35,4 +35,6 @@ def fuse(left, right):
     else:
         return list + right[ri:]
 
+# Test case
+print("Should be [43, 43, 43, 5, 5, 4, 4, 2, 2, 1, 1]")
 print(fusion_sort([1,2,4,5,2,4,1,43,5,43,43]))
